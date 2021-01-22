@@ -8,21 +8,18 @@ let lastNumSquared = lastNum * lastNum;
 let userColorChoice;
 
 //sets default color
-function defaultColor(){
-    userColorChoice = 'permMouseOver';
+function defaultColor(x){
+    userColorChoice = 'purple';
     return userColorChoice;
 };
+
 defaultColor();
 
 //black button
 const blkbtn = document.querySelector('#black');
 blkbtn.addEventListener('click', function(e){
-    userColorChoice = 'mouseOverBlack';
-    let permMouseOver = document.querySelectorAll('.permMouseOver');
-    permMouseOver.forEach(item =>{
-        item.classList.add('mouseOverBlack');
-        item.classList.remove('permMouseOver');
-    });
+    griditem = document.querySelectorAll('.griditem');
+    userColorChoice = 'black';
     return userColorChoice;
     
 });
@@ -30,20 +27,37 @@ blkbtn.addEventListener('click', function(e){
 //purple button
 const purple = document.querySelector('#purple');
 purple.addEventListener('click', function(e){
-    userColorChoice = 'permMouseOver';
-    let mouseOverBlack = document.querySelectorAll('.mouseOverBlack');
-    mouseOverBlack.forEach(item =>{
-        item.classList.add('permMouseOver');
-        item.classList.remove('mouseOverBlack');
-    });
+    userColorChoice = 'purple';
     return userColorChoice;
 });
 
 //eraser button
 const eraser = document.querySelector('#eraser');
 eraser.addEventListener('click', function(x){
-    userColorChoice = 'mouseOverEraser';
-    return userColorChoice
+    userColorChoice = 'gray';
+    return userColorChoice;
+});
+
+const random = document.querySelector('#random');
+random.addEventListener('click', function(){
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    userColorChoice = `#${randomColor}`
+    return userColorChoice;
+});
+
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = "#";
+    for (let i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+};
+
+const rainbow = document.querySelector('#rainbow');
+rainbow.addEventListener('click', function(){
+    userColorChoice = rainbow;
+    return userColorChoice;
 });
 
 //? this is a test, an example for how I could possibly implement a rainbow style.
@@ -66,9 +80,16 @@ const resetbtn = document.querySelector('#reset');
 resetbtn.addEventListener('click', function(){
     griditem = document.querySelectorAll('.griditem');
     griditem.forEach(item => {
-        item.classList.remove('permMouseOver', 'mouseOverBlack', 'mouseOverEraser');
+        item.style.background = '';
     });
 });
+
+function resetGrid(){
+    griditem = document.querySelectorAll('.griditem');
+    griditem.forEach(item => {
+        item.style.background = '';
+    });
+};
 
 //default layout, on page refresh
 for(i=0; i<lastNumSquared; i++){
@@ -79,10 +100,17 @@ for(i=0; i<lastNumSquared; i++){
     gridItemArray.push(griditem);
     gridContainer.appendChild(griditem);
     griditem.addEventListener('mouseover', function(x){
-        griditem.classList.remove('permMouseOver', 'mouseOverBlack', 'mouseOverEraser');
-        griditem.classList.add(userColorChoice);
-        // griditem.classList.add(mouseOverRainbow(griditem));
-        // x.target.style.background = "yellow";
+        if(userColorChoice === rainbow){
+            x.target.style.background = getRandomColor();
+        }
+        else{
+            if(userColorChoice === rainbow){
+            x.target.style.background = getRandomColor();
+        }
+        else{
+            x.target.style.background = userColorChoice;
+        };
+        };
     });
 };
 
@@ -96,11 +124,9 @@ slider.onchange = function(){
     sliderValue = parseInt(this.value);
     displaySliderValue.textContent = sliderValue;
     makeGrid();
+    resetGrid();
     
     griditem = document.querySelectorAll('.griditem');
-    griditem.forEach(item => {
-        item.classList.remove('permMouseOver', 'mouseOverBlack');
-    });
     
     if(lastNum < sliderValue){
         gridItemArray = [];
@@ -112,9 +138,13 @@ slider.onchange = function(){
             griditem.classList.add('griditem');
             gridItemArray.push(griditem);
             gridContainer.appendChild(griditem);
-            griditem.addEventListener('mouseover', function(){
-                griditem.classList.remove('permMouseOver', 'mouseOverBlack', 'mouseOverEraser');
-                griditem.classList.add(userColorChoice);
+            griditem.addEventListener('mouseover', function(x){
+                if(userColorChoice === rainbow){
+            x.target.style.background = getRandomColor();
+        }
+        else{
+            x.target.style.background = userColorChoice;
+        };
             });
         };
         
@@ -128,9 +158,13 @@ slider.onchange = function(){
             let griditem = document.querySelector('div');
             gridItemArray.pop(griditem);
             gridContainer.removeChild(griditem);
-            griditem.addEventListener('mouseover', function(){
-                griditem.classList.remove('permMouseOver', 'mouseOverBlack', 'mouseOverEraser');
-                griditem.classList.add(userColorChoice);
+            griditem.addEventListener('mouseover', function(x){
+                if(userColorChoice === rainbow){
+            x.target.style.background = getRandomColor();
+        }
+        else{
+            x.target.style.background = userColorChoice;
+        };
             });
         };
         }
