@@ -33,7 +33,7 @@ header {
 	height: 1.5rem;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 60vh;
+	width: 400px;
 	font-size: 1.5rem;
 	justify-content: space-evenly;
 	margin-top: 2%;
@@ -66,10 +66,13 @@ select:focus {
 	justify-content: center;
 	align-content: center;
 	height: 1.5rem;
-	font-size: 1.15rem;
+	font-size: 1.5rem;
 	position: relative;
 	margin-top: 2%;
 	text-align: center;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .mytooltip::before,
@@ -88,7 +91,7 @@ select:focus {
 }
 
 .mytooltip::before {
-	--translate-y: calc(100% + var(--arrow-size));
+	--translate-y: calc(84% + var(--arrow-size));
 	content: attr(data-tooltip);
 	border-radius: 0.3rem;
 	padding: 0.3rem;
