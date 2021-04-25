@@ -7,6 +7,13 @@ let lastNum = 16;
 let lastNumSquared = lastNum * lastNum;
 let userColorChoice;
 
+const copyThis = document.getElementById('copyemail');
+copyThis.addEventListener('click', () => {
+  copyThis.select();
+  copyThis.setSelectionRange(0, 99999);
+  document.execCommand('copy');
+})
+
 //sets default color
 function defaultColor(x){
     userColorChoice = 'purple';

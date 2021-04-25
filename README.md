@@ -1,37 +1,9 @@
-# etchv3 (version three)
+# EtchaSketch by Michael Jacob<br><a href="https://github.com/Michaelleojacob/etchv3" target="_blank">Repository</a><br><a href="https://michaelleojacob.github.io/etchv3/" target="\_blank">Live application</a>
 
-# live applications:
+# Built with vanilla javascript, html and css.
 
-## - version one: https://michaelleojacob.github.io/etch_a_sketch/
+# High Priority on:<br>Simple and sleek design<br>Mobile first focus (design wise)<br>Dark mode
 
-## - version two: https://michaelleojacob.github.io/etch_a_sketch_additional_features/
+# Highlight features:<br>Grid is created, updated and made dynamically based on user input.<br>Mouse over works, color can be changed via the buttons at the top of the page<br>Random color and rainbow options
 
-## - version three: https://michaelleojacob.github.io/etchv3/
-
-# this version is the finished product at least for now. I'm very happy with how it turned out.
-
-# Highlights:
-
-> grid is created, updated and made dynamic on user input using the slider.
-
-> mouse over works. Color can be adjusted using the buttons at the top.
-
-> random color and rainbow buttons work.
-
-> reset button works.
-
-# Some of my biggest challenges for this project:
-
-> Making the grid dynamic. Solution I implemented was to move the css to javascript so I may use the setproperty with a js variable.
-
-> Allowing the mouse over to work on the different grids, be the default grid (on page load), or larger/smaller grids. I wasn't exactly sure how to tackle going through each grid item and adding a mouseover effect.
-
-> the buttons to change color.
-
-> finding a way to have the mouse over pick a random color.
-
-# As mentioned, this is the final product. At least for now. Thank you all for checking out my project.
-
-# michaelleojacob@gmail.com
-
-# https://www.linkedin.com/public-profile/in/michael-leo-jacob
+# Get in touch!:<br>@michaelleojacob@gmail.com<br><a href="https://www.linkedin.com/public-profile/in/michael-leo-jacob" target="_blank">Linkedin</a><br><a href="https://https://github.com/Michaelleojacob" target="_blank">Github</a>
